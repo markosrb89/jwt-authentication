@@ -76,7 +76,7 @@ function RegisterForm() {
 
   return (
     <FormikProvider value={formik}>
-      <h1>Register</h1>
+      <h1 style={{ textAlign: "center" }}>Register</h1>
       <Form name="registerForm">
         <InputField
           name="full_name"

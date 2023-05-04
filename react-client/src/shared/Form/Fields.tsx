@@ -26,7 +26,7 @@ export function InputField({
   const error = useFieldError(name);
 
   return (
-    <div>
+    <div style={{ marginBottom: "3rem" }}>
       <Input
         {...field}
         id={id || name}

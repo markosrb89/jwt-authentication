@@ -36,7 +36,13 @@ function Input({
   renderLabel = (labelProps) => <Label {...labelProps}>{label}</Label>,
 }: InputProps) {
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column-reverse",
+        width: "25rem",
+      }}
+    >
       <input
         autoComplete={autoComplete}
         type={type}
@@ -47,6 +53,12 @@ function Input({
         onChange={onChange}
         data-testid={testId}
         maxLength={maxLength}
+        style={{
+          backgroundColor: "rgb(125 116 116)",
+          outline: "none",
+          border: "0px",
+          padding: "0.5rem",
+        }}
       />
       {label && showLabel && renderLabel({ htmlFor: id || name, showLabel })}
     </div>

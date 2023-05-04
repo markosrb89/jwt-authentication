@@ -11,7 +11,7 @@ export interface FormFieldErrorProps {
 export function FormFieldError({ id, error, testId }: FormFieldErrorProps) {
   return (
     <FormError id={id} testId={testId}>
-      {error}
+      <p style={{ color: "#cb2323", marginTop: "5px" }}>{error}</p>
     </FormError>
   );
 }

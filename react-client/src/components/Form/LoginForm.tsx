@@ -57,7 +57,7 @@ function LoginForm() {
 
   return (
     <FormikProvider value={formik}>
-      <h1>Login</h1>
+      <h1 style={{ textAlign: "center" }}>Login</h1>
       <Form name="loginForm">
         <InputField
           name="email"
