@@ -1,0 +1,39 @@
+version: "3.8"
+services:
+  react_app:
+    container_name: react_client
+    image: react_client_template
+    build: ./react-client
+    ports:
+      - "3000:3000"
+      - "3010:3010"
+  node_server:
+    container_name: node_server
+    image: node_server_template
+    build:
+      context: ./node-server
+    ports:
+      - "3001:3001"
+    environment:
+      - EXTERNAL_PORT=3001
+      - PGUSER=nb_user
+      - PGPASSWORD=12345
+      - PGDATABASE=nb_database
+      - PGHOST=postgress_db
+      - ACCESS_JWT_SECRET=secret
+      - REFRESH_JWT_SECRET=refreshSecret
+    depends_on:
+      - postgress_db
+  postgress_db:
+    container_name: postgress_db
+    image: "postgres:12"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=nb_user
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=nb_database
+    volumes:
+      - node_react_docker:/var/lib/postgresql/data
+volumes:
+  node_react_docker: {}
